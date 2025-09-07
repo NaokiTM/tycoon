@@ -1,0 +1,1 @@
+use npx tailwindcss -i ./src/style.css -o ./output.css --watch to manually rebuild the css. 

@@ -3,18 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./output.css">
-    <title>title</title>
+    <link rel="stylesheet" href="output.css">
+    <title>EmpireGame</title>
 </head>
-<body>
-    <div class="bg-red-400 text-center m-4 p-2 rounded-md space-x-4 flex max-w-full text-xl font-bold text-white">
-        <a href="">build</a>
-        <a>demolish</a>
-        <a>upgrade</a>
-        <a>terminal</a>
-        <a>explorer</a>
-        <a>pets</a>
-        <a>stats</a>
+<body class="text-white">
+    <div id="status" class="flex bg-neutral-900 p-2">
+        <div id="money" class="flex-1">
+            Money: 
+        </div>
+        <div id="news" class="flex-1">
+            News: 
+        </div>
     </div>
+    <!-- make the main container flex row to have the menu bar on the left, and the rest on the right.  -->
+    <div id="mainui" class=" flex items-center justify-center h-[90vh]">
+        <div class="flex-[2] flex flex-col border-2 h-full">
+            <div class="flex-1" id="minigames:">
+                Minigames 
+                <div id="hitman">
+
+                </div>
+                <div id="stocks">
+
+                </div>
+            </div>
+            <div class="flex-1" id="rivals">
+                Rival companies owned: 
+                (toys arent us, pineapple, etc. basically any good companies or other criminal organisations that we killed the boss of e.g. yakuza)
+            </div>
+        </div>
+        <div id="business" class="flex-[6] flex flex-row text-center items-center h-full justify-center space-x-4">
+            <button id="leftbtn"><</button>
+            <div class="flex-col">
+                <div class="" id="businessname">
+                    Business: 
+                </div>
+                <div class="" id="businesssaying">
+                    something about the business
+                </div>
+                <button id="upgradebusinesbutton">
+                    button to upgrade 
+                </button>
+            </div>
+            <buton id="rightbtn">></button>
+        </div>
+        <div id="shop" class="flex-[2] flex border-2 h-full justify-center">
+            Shop: 
+        </div>
+    </div>
+<!-- anime figurine maker, gaming pc factory, Fike (fake nike), illuminatied, casino, silk path etc. -->
+ <!-- also want some sort of notification system for drama like people threatening our business or us randomly losing money from local events.  -->
 </body>
-</html>
+</html> 

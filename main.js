@@ -22,7 +22,7 @@ const shopdiv = l("shop")
 const game = {
     businesses: [
         "Sneaker flipping", 
-        "self published manga",
+        "Self published manga",
         "Trading card shop", 
         "wcdonalds shop",
         "casino",
@@ -32,6 +32,11 @@ const game = {
         "Mafia boss",
         "illuminatied organization",
     ],
+
+    businessCaptions: [
+        "You spent all of your last pocket money on shoes. returns are neglibible but enough to show off at school"
+    ], 
+
     currentbiz: 0,
     prestige: 0,
     money: 0,
@@ -41,7 +46,7 @@ const game = {
     hitmanUnlocked: false,
     rivalsUnlocked: false,
 
-    logic:function() {
+    update: function() {
         switch (this.currentbiz) {
             case 0:
                 this.money++
@@ -77,15 +82,20 @@ const game = {
                 // Code to run if expression doesn't match any case
                 break;
         }
+    },
 
+    logic:function() {
+        
     },
 
     render: function() {
         moneybar.innerHTML = this.money
         businessnamediv.innerHTML = this.businesses[this.currentbiz]
+        sayingdiv.innerHTML = this.businessCaptions[this.currentbiz]
     },
 
     loop: function() {
+        this.update()
         this.logic()
         this.render()
     }

@@ -60,10 +60,10 @@ const game = {
         })
 
         shopButtons.forEach((btn, i) => {
-            if (i === 0) return; // skip first business
-
             btn.addEventListener("click", () => {
-                let business = game.businesses[i];
+                let business = game.businesses[i + 1];
+                console.log(i)
+                console.log(business)
                 if (game.money >= business.price) {
                     if (business.unlocked === false) {
                         game.money -= business.price;

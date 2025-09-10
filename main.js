@@ -77,24 +77,6 @@ const game = {
                 }
             });
         });
-
-        //Attaches event listener to each shop button, when one is clicked, buy the associated business if player has enough money
-        // for (let i = 0; i < shopButtons.length; i++) {
-        //     shopButtons[i].addEventListener("click", function() {
-        //             let price = game.businesses[i].price
-        //             let unlocked = game.businesses[i].unlocked
-        //             console.log(price)
-        //             if (game.money >= price && unlocked != true) {
-        //                 game.money -= price
-        //                 unlocked = true
-        //                 console.log("business bought")
-        //             } else if (unlocked == true) {
-        //                 console.log("already owned")
-        //             } else {
-        //                 console.log("not enough money")
-        //             }
-        //     })
-        // }
     },
 
     logic:function() {
@@ -110,7 +92,7 @@ const game = {
 
     render: function() {
         moneybar.innerHTML = this.money
-        businessnamediv.innerHTML = this.businesses[this.selectedBusiness]
+        businessnamediv.innerHTML = this.businesses[this.selectedBusiness].name
         sayingdiv.innerHTML = this.businessCaptions[this.selectedBusiness]
     },
 

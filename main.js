@@ -55,14 +55,14 @@ const game = {
 
     scroll:function(direction) {
         if (direction = "r") {
-            if (this.selectedBusiness+1 >= this.businesses.length()) {
+            if (this.selectedBusiness+1 >= this.businesses.length) {
                 this.selectedBusiness = this.businesses[0]
             } else {
                 this.selectedBusiness++
             }
         } else if (direction = "l") {
             if (this.selectedBusiness-1 < 0) {
-                this.selectedBusiness = this.businesses.length() - 1
+                this.selectedBusiness = this.businesses.length - 1
             } else {
                 this.selectedBusiness--
             }
@@ -79,11 +79,11 @@ const game = {
         })
 
         lbtn.addEventListener("click", () => {
-            scroll("l")
+            this.scroll("l")
         })
 
         rbtn.addEventListener("click", () => {
-            scroll("r")
+            this.scroll("r")
         })
 
         shopButtons.forEach((btn, i) => {

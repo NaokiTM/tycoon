@@ -54,13 +54,13 @@ const game = {
     lastIncomeTime: Date.now(),
 
     scroll:function(direction) {
-        if (direction = "r") {
+        if (direction === "r") {
             if (this.selectedBusiness+1 >= this.businesses.length) {
                 this.selectedBusiness = this.businesses[0]
             } else {
                 this.selectedBusiness++
             }
-        } else if (direction = "l") {
+        } else if (direction === "l") {
             if (this.selectedBusiness-1 < 0) {
                 this.selectedBusiness = this.businesses.length - 1
             } else {

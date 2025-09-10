@@ -68,6 +68,7 @@ const game = {
                     if (business.unlocked === false) {
                         game.money -= business.price;
                         business.unlocked = true;
+                        btn.style.backgroundColor = "red"
                         console.log("business bought");
                     }
                 } else if (business.unlocked) {
@@ -82,6 +83,7 @@ const game = {
     logic:function() {
         //filters to only account for unlocked businesses, and sums up mps for each of these businesses and adds to total money. 
         //The date thing is to ensure that money is updated every second as opposed to every 60ms. This makes calculations easier
+        //how to make it so it updates every 16ms, 
         const now = Date.now();
         if (now - this.lastIncomeTime >= 1000) { // 1000ms = 1s
             this.money = this.businesses.filter(business => business.unlocked).reduce((sum, business) => sum + business.mps, this.money)

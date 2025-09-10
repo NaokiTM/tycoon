@@ -20,15 +20,16 @@ const sayingdiv = l("businesssaying")
 const upgradebizbutton = l("upgradebusinessbtn")
 const shopdiv = l("shop")
 const shopButtons = document.querySelectorAll('#shop button')
+const TICK_RATE = 1000 / 60; // 16.67ms per frame (~60fps)
 
 
 const game = {
     //true means the business is unlocked, false means its not. mps = money per second
     businesses: [
         {name: "Sneaker flipping", unlocked: true, mps: 1, price: 0}, 
-        {name: "Self published manga", unlocked: false, mps: 10, price: 10},
+        {name: "Manga studio", unlocked: false, mps: 10, price: 10},
         {name: "Trading card shop", unlocked: false, mps: 100, price: 10}, 
-        {name: "wcdonalds shop", unlocked: false, mps: 500, price: 10},
+        {name: "wcdonalds franchise", unlocked: false, mps: 500, price: 10},
         {name: "casino", unlocked: false, mps: 1000, price: 10},
         {name: "Anime figurine factory", unlocked: false, mps: 5000, price: 10}, 
         {name: "Gaming PC factory", unlocked: false, mps: 10000, price: 10},
@@ -52,11 +53,37 @@ const game = {
     clickmultiplier: 1,
     lastIncomeTime: Date.now(),
 
+    scroll:function(direction) {
+        if (direction = "r") {
+            if (this.selectedBusiness+1 >= this.businesses.length()) {
+                this.selectedBusiness = this.businesses[0]
+            } else {
+                this.selectedBusiness++
+            }
+        } else if (direction = "l") {
+            if (this.selectedBusiness-1 < 0) {
+                this.selectedBusiness = this.businesses.length() - 1
+            } else {
+                this.selectedBusiness--
+            }
+        } else {
+            console.log("argument in scroll function is wrong")
+        }
+    },
+
     init:function() {
 
         businessButton.addEventListener("click", () => {
             //Every click by default increments by 1, multipliers added later to increase increment amount
             this.money += 1 * this.clickmultiplier
+        })
+
+        lbtn.addEventListener("click", () => {
+            scroll("l")
+        })
+
+        rbtn.addEventListener("click", () => {
+            scroll("r")
         })
 
         shopButtons.forEach((btn, i) => {
@@ -84,16 +111,16 @@ const game = {
         //filters to only account for unlocked businesses, and sums up mps for each of these businesses and adds to total money. 
         //The date thing is to ensure that money is updated every second as opposed to every 60ms. This makes calculations easier
         //how to make it so it updates every 16ms, 
-        const now = Date.now();
-        if (now - this.lastIncomeTime >= 1000) { // 1000ms = 1s
-            this.money = this.businesses.filter(business => business.unlocked).reduce((sum, business) => sum + business.mps, this.money)
-            this.lastIncomeTime = now;
-        }
+        let mpt = this.businesses
+        .filter(business => business.unlocked)   //gathers all unlocked businesses
+        .reduce((sum, business) => sum + business.mps, 0)  //adds all their passive income to generate the amount of money per tick
+
+        this.money += mpt * (TICK_RATE / 1000)  //truncating this leads to the decimal being cut off, meaning if earning less than 1 money per tick, it never adds up (chatgpt)
 
     },
 
     render: function() {
-        moneybar.innerHTML = this.money
+        moneybar.innerHTML = Math.trunc(this.money)  //instead truncate here to avoid interfering with decimals and only hide from the player
         businessnamediv.innerHTML = this.businesses[this.selectedBusiness].name
         sayingdiv.innerHTML = this.businessCaptions[this.selectedBusiness]
     },

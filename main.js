@@ -19,6 +19,7 @@ const businessButton=l("businessbutton")
 const sayingdiv = l("businesssaying")
 const upgradebizbutton = l("upgradebusinessbtn")
 const shopdiv = l("shop")
+const iconimg = l("iconimg")
 const shopButtons = document.querySelectorAll('#shop button')
 const TICK_RATE = 1000 / 60; // 16.67ms per frame (~60fps)
 
@@ -26,16 +27,16 @@ const TICK_RATE = 1000 / 60; // 16.67ms per frame (~60fps)
 const game = {
     //true means the business is unlocked, false means its not. mps = money per second
     businesses: [
-        {name: "Sneaker flipping", unlocked: true, mps: 1, price: 0}, 
-        {name: "Manga studio", unlocked: false, mps: 10, price: 10},
-        {name: "Trading card shop", unlocked: false, mps: 100, price: 10}, 
-        {name: "wcdonalds franchise", unlocked: false, mps: 500, price: 10},
-        {name: "casino", unlocked: false, mps: 1000, price: 10},
-        {name: "Anime figurine factory", unlocked: false, mps: 5000, price: 10}, 
-        {name: "Gaming PC factory", unlocked: false, mps: 10000, price: 10},
-        {name: "silk path", unlocked: false, mps: 20000, price: 10},
-        {name: "Mafia boss", unlocked: false, mps: 50000, price: 10},
-        {name: "illuminatied organization", unlocked: false, mps: 100000, price: 10},
+        {name: "Sneaker flipping", unlocked: true, mps: 1, price: 0, iconpath: "./assets/sneakers.png"}, 
+        {name: "Manga studio", unlocked: false, mps: 10, price: 10, iconpath: "./assets/manga.png"},
+        {name: "Trading card shop", unlocked: false, mps: 100, price: 10, iconpath: "./assets/cards.png"}, 
+        {name: "wcdonalds franchise", unlocked: false, mps: 500, price: 10, iconpath: "./assets/burger.png"},
+        {name: "casino", unlocked: false, mps: 1000, price: 10, iconpath: "./assets/casino.png"},
+        {name: "Anime figurine factory", unlocked: false, mps: 5000, price: 10, iconpath: "./assets/action.png"}, 
+        {name: "Gaming PC factory", unlocked: false, mps: 10000, price: 10, iconpath: "./assets/pc.png"},
+        {name: "silk path", unlocked: false, mps: 20000, price: 10, iconpath: "./assets/silk.png"},
+        {name: "Mafia boss", unlocked: false, mps: 50000, price: 10, iconpath: "./assets/mafia.png"},
+        {name: "illuminatied organization", unlocked: false, mps: 100000, price: 10, iconpath: "./assets/illuminati.png"},
     ],
 
     businessCaptions: [
@@ -56,7 +57,7 @@ const game = {
     scroll:function(direction) {
         if (direction === "r") {
             if (this.selectedBusiness+1 >= this.businesses.length) {
-                this.selectedBusiness = this.businesses[0]
+                this.selectedBusiness = 0
             } else {
                 this.selectedBusiness++
             }
@@ -120,8 +121,10 @@ const game = {
     },
 
     render: function() {
-        moneybar.innerHTML = Math.trunc(this.money)  //instead truncate here to avoid interfering with decimals and only hide from the player
+        moneybar.innerHTML = Math.trunc(this.money)  //instead truncate here to avoid interfering with decimals and only hide from the player\
+        console.log("selctednjbusins" + this.selectedBusiness)
         businessnamediv.innerHTML = this.businesses[this.selectedBusiness].name
+        iconimg.src = this.businesses[this.selectedBusiness].iconpath
         sayingdiv.innerHTML = this.businessCaptions[this.selectedBusiness]
     },
 

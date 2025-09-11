@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="output.css">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
     </style>
@@ -11,8 +12,9 @@
     <title>EmpireGame</title>
 </head>
 <body class="text-white bg-black font-[Outfit] font-bold">
-    <div id="status" class="flex bg-slate-900 p-2">
-        <div id="moneybar" class="flex flex-col space-x-8 text-3xl">
+
+    <div id="status" class="flex bg-slate-900 p-2 justify-between">
+        <div id="moneybar" class="flex flex-col text-3xl">
             <div class="text-xs font-medium">Money</div>
             <div id="money"></div>
         </div>
@@ -24,25 +26,28 @@
             </div>
         </div>
     </div>
+
     <!-- make the main container flex row to have the menu bar on the left, and the rest on the right.  -->
     <div id="mainui" class=" flex justify-center h-[100vh]">
-        <div class="flex-[2] flex flex-col h-full bg-slate-800">
-            <div class="flex-1 text-center" id="minigames">
-                Minigames 
-                <div id="hitman">
 
+        <!-- LEFT BAR -->
+        <div class="flex-[2] flex text-center flex-col h-full bg-slate-800">
+            <div class="flex flex-col flex-1 text-center text-xl" id="minigames">
+                <div>Minigames</div>
+                <div id="hitman" class="text-left font-medium flex flex-1">
+                    <div class="text-lg">Hire a hitman: </div>
                 </div>
-                <div id="stocks">
-
+                <div id="stocks" class="text-left font-medium flex flex-1">
+                    <div class="text-lg">Stock market:</div>
                 </div>
             </div>
             <div class="flex-1" id="rivals">
                 Rival companies owned: 
-                (toys arent us, pineapple, etc. basically any good companies or other criminal organisations that we killed the boss of e.g. yakuza)
             </div>
         </div>
-        <div class="flex flex-col flex-[6] justify-evenly">
 
+        <!-- MIDDLE SECTION -->
+        <div class="flex flex-col flex-[6] justify-evenly">
             <div id="news" class="bg-red-600 pl-1 italic">BREAKING: i just started the game</div>
 
             <div id="business" class="flex flex-row text-center items-center h-full justify-center space-x-4">
@@ -70,8 +75,10 @@
                 </button>
             </div>
         </div>
+
+        <!-- RIGHT BAR -->
         <div id="shop" class="flex-[2] flex flex-col h-full bg-slate-800">
-                <div class="text-center">Shop</div>
+                <div class="text-center text-lg">Shop</div>
                 <div class="flex justify-evenly flex-col h-full">
                     <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
                         <div>
@@ -156,6 +163,7 @@
                 </div>
         </div>
     </div>
+
     <footer class="flex text-xs">
         <a href="https://www.flaticon.com/free-icons/sneakers" title="sneakers icons">Sneakers icons created by Good Ware - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/cards" title="cards icons">Cards icons created by Victoruler - Flaticon</a>

@@ -379,6 +379,9 @@
   .text-center {
     text-align: center;
   }
+  .font-\[Outfit\] {
+    font-family: Outfit;
+  }
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
@@ -443,6 +446,14 @@
       @media (hover: hover) {
         background-color: var(--color-red-400);
       }
+    }
+  }
+  .focus\:scale-125 {
+    &:focus {
+      --tw-scale-x: 125%;
+      --tw-scale-y: 125%;
+      --tw-scale-z: 125%;
+      scale: var(--tw-scale-x) var(--tw-scale-y);
     }
   }
 }

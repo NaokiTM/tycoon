@@ -132,11 +132,11 @@ const game = {
 
     render: function() {
         shopNameDivs.forEach((div, i) => {
-            div.innerHTML = this.businesses[i].name
+            div.innerHTML = this.businesses[i + 1].name
         })
 
         shopPriceDivs.forEach((div, i) => {
-            div.innerHTML = "$" + this.businesses[i].price
+            div.innerHTML = "$" + this.businesses[i + 1].price
         })
 
         moneybar.innerHTML = "$" + Math.trunc(this.money)  //instead truncate here to avoid interfering with decimals and only hide from the player

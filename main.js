@@ -19,6 +19,7 @@ const businessButton=l("businessbutton")
 const sayingdiv = l("businesssaying")
 const upgradebizbutton = l("upgradebusinessbtn")
 const shopdiv = l("shop")
+const prestigebar = l("prestigebar")
 const iconimg = l("iconimg")
 const shopButtons = document.querySelectorAll('#shop button')
 const TICK_RATE = 1000 / 60; // 16.67ms per frame (~60fps)
@@ -127,7 +128,8 @@ const game = {
     },
 
     render: function() {
-        moneybar.innerHTML = Math.trunc(this.money)  //instead truncate here to avoid interfering with decimals and only hide from the player\
+        moneybar.innerHTML = "$" + Math.trunc(this.money)  //instead truncate here to avoid interfering with decimals and only hide from the player
+        prestigebar.innerHTML = this.prestige
         businessnamediv.innerHTML = this.businesses[this.selectedBusiness].name
         iconimg.src = this.businesses[this.selectedBusiness].iconpath
         sayingdiv.innerHTML = this.businessCaptions[this.selectedBusiness]

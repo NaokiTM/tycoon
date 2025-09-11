@@ -10,20 +10,24 @@
 
     <title>EmpireGame</title>
 </head>
-<body class="text-white bg-linear-to-t from-slate-400 to-slate-700 font-[Outfit]">
+<body class="text-white bg-black font-[Outfit] font-bold">
     <div id="status" class="flex bg-slate-900 p-2">
-        <div id="moneybar" class="flex-1 flex flex-row space-x-2">
-            <div>Money:</div>
+        <div id="moneybar" class="flex flex-col space-x-8 text-3xl">
+            <div class="text-xs font-medium">Money</div>
             <div id="money"></div>
         </div>
-        <div id="prestigebar" class="flex-1">
-            Prestige:
+        <div class="flex-1 flex flex-col space-x-2 text-3xl">
+            <div class="text-xs font-medium">Prestige</div>
+            <div class="flex flex-row">
+                <div class="text-xs font-light">Lvl.</div>
+                <div id="prestigebar"></div>
+            </div>
         </div>
     </div>
     <!-- make the main container flex row to have the menu bar on the left, and the rest on the right.  -->
     <div id="mainui" class=" flex justify-center h-[100vh]">
         <div class="flex-[2] flex flex-col h-full bg-slate-800">
-            <div class="flex-1" id="minigames">
+            <div class="flex-1 text-center" id="minigames">
                 Minigames 
                 <div id="hitman">
 
@@ -38,7 +42,9 @@
             </div>
         </div>
         <div class="flex flex-col flex-[6] justify-evenly">
-            <div id="news" class="text-center items-center">BREAKING: news</div>
+
+            <div id="news" class="bg-red-600 pl-1 italic">BREAKING: i just started the game</div>
+
             <div id="business" class="flex flex-row text-center items-center h-full justify-center space-x-4">
                 <button id="leftbtn" class="hover:cursor-pointer scale-125">
                     <img src="./assets/arrback.png" class="hover:scale-150 transition"/>
@@ -65,7 +71,7 @@
             </div>
         </div>
         <div id="shop" class="flex-[2] flex flex-col h-full bg-slate-800">
-                <div class="text-center">Shop:</div>
+                <div class="text-center">Shop</div>
                 <div class="flex justify-evenly flex-col h-full">
                     <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
                         <div>

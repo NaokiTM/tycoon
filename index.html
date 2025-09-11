@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="output.css">
     <title>EmpireGame</title>
 </head>
-<body class="text-white bg-black">
-    <div id="status" class="flex bg-neutral-900 p-2">
+<body class="text-white bg-linear-to-t from-slate-400 to-slate-700">
+    <div id="status" class="flex bg-slate-900 p-2">
         <div id="moneybar" class="flex-1 flex flex-row space-x-2">
             <div>Money:</div>
             <div id="money"></div>
@@ -17,9 +17,9 @@
         </div>
     </div>
     <!-- make the main container flex row to have the menu bar on the left, and the rest on the right.  -->
-    <div id="mainui" class=" flex justify-center h-[90vh]">
-        <div class="flex-[2] flex flex-col border-2 h-full">
-            <div class="flex-1" id="minigames:">
+    <div id="mainui" class=" flex justify-center h-[100vh]">
+        <div class="flex-[2] flex flex-col h-full bg-slate-800">
+            <div class="flex-1" id="minigames">
                 Minigames 
                 <div id="hitman">
 
@@ -36,12 +36,12 @@
         <div class="flex flex-col flex-[6] justify-evenly">
             <div class="text-center items-center">Prestigebar</div>
             <div id="business" class="flex flex-row text-center items-center h-full justify-center space-x-4">
-                <button id="leftbtn" class="hover:cursor-pointer">
-                    <img src="./assets/left.png" />
+                <button id="leftbtn" class="hover:cursor-pointer scale-125">
+                    <img src="./assets/arrback.png" class="hover:scale-150 transition"/>
                 </button>
                 <div class="flex-col">
                     <div class="flex justify-center ">
-                        <button class="hover: cursor-pointer" id="businessbutton">
+                        <button class="hover:cursor-pointer hover:scale-110 transition" id="businessbutton">
                             <img id = "iconimg" src="./assets/sneakers.png">
                         </button>
                     </div>
@@ -55,100 +55,98 @@
                         button to upgrade 
                     </button>
                 </div>
-                <button id="rightbtn" class="hover:cursor-pointer">
-                    <img src="./assets/right.png" />
+                <button id="rightbtn" class="hover:cursor-pointer scale-125">
+                    <img src="./assets/arrfront.png" class="hover:scale-150 transition" />
                 </button>
             </div>
         </div>
-        <div id="shop" class="flex-[2] flex flex-col h-full border-2">
-            <div>Shop:</div>
+        <div id="shop" class="flex-[2] flex flex-col h-full bg-slate-800">
+                <div class="text-center">Shop:</div>
                 <div class="flex justify-evenly flex-col h-full">
-                        <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-white border-2">
-                            <div>
-                                Manga studio
-                            </div>
-                            <div>
-                                $10
-                            </div>
-                        </button>
+                    <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
+                        <div>
+                            Manga studio
+                        </div>
+                        <div>
+                            $10
+                        </div>
+                    </button>
 
-                        <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-white border-2">
-                            <div>
-                                Trading card shop
-                            </div>
-                            <div>
-                                $10
-                            </div>
-                        </button>
+                    <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
+                        <div>
+                            Trading card shop
+                        </div>
+                        <div>
+                            $10
+                        </div>
+                    </button>
 
-                        <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-white border-2">
-                            <div>
-                                Wcdonalds franchise
-                            </div>
-                            <div>
-                                $10
-                            </div>
-                        </button>
+                    <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
+                        <div>
+                            Wcdonalds franchise
+                        </div>
+                        <div>
+                            $10
+                        </div>
+                    </button>
 
-                        <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-white border-2">
-                            <div>
-                                Casino
-                            </div>
-                            <div>
-                                $10
-                            </div>
-                        </button>
+                    <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
+                        <div>
+                            Casino
+                        </div>
+                        <div>
+                            $10
+                        </div>
+                    </button>
 
-                        <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-white border-2">
-                            <div>
-                                Anime figurine factory
-                            </div>
-                            <div>
-                                $10
-                            </div>
-                        </button>
+                    <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
+                        <div>
+                            Anime figurine factory
+                        </div>
+                        <div>
+                            $10
+                        </div>
+                    </button>
 
-                        <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-white border-2">
-                            <div>
-                                Gaming PC factory
-                            </div>
-                            <div>
-                                $10
-                            </div>
-                        </button>
+                    <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
+                        <div>
+                            Gaming PC factory
+                        </div>
+                        <div>
+                            $10
+                        </div>
+                    </button>
 
-                        <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-white border-2">
-                            <div>
-                                Silk path
-                            </div>
-                            <div>
-                                $10
-                            </div>
-                        </button>
+                    <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
+                        <div>
+                            Silk path
+                        </div>
+                        <div>
+                            $10
+                        </div>
+                    </button>
 
-                        <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-white border-2">
-                            <div>
-                                Mafia boss
-                            </div>
-                            <div>
-                                $10
-                            </div>
-                        </button>
+                    <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
+                        <div>
+                            Mafia boss
+                        </div>
+                        <div>
+                            $10
+                        </div>
+                    </button>
 
-                        <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-white border-2">
-                            <div>
-                                Illuminatied
-                            </div>
-                            <div>
-                                $10
-                            </div>
-                        </button>
-
+                    <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
+                        <div>
+                            Illuminatied
+                        </div>
+                        <div>
+                            $10
+                        </div>
+                    </button>
                 </div>
-
         </div>
     </div>
-    <footer>
+    <footer class="flex text-xs">
         <a href="https://www.flaticon.com/free-icons/sneakers" title="sneakers icons">Sneakers icons created by Good Ware - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/cards" title="cards icons">Cards icons created by Victoruler - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/manga" title="manga icons">Manga icons created by Freepik - Flaticon</a>
@@ -160,6 +158,7 @@
         <a href="https://www.flaticon.com/free-icons/mafia" title="mafia icons">Mafia icons created by Freepik - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/illuminati" title="illuminati icons">Illuminati icons created by Freepik - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/arrows" title="arrows icons">Arrows icons created by Andrean Prabowo - Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by Freepik - Flaticon</a>
     </footer>
 <!-- anime figurine maker, gaming pc factory, Fike (fake nike), illuminatied, casino, silk path etc. -->
  <!-- also want some sort of notification system for drama like people threatening our business or us randomly losing money from local events.  -->

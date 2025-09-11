@@ -46,7 +46,7 @@ const game = {
     selectedBusiness: 0,
     prestige: 0,
     money: 0,
-    shopUnlocked: 0, 
+    shopUnlocked: 0, //The number of businesses unlocked (or rather what businesses have been unlocked up to)
     shopGreyed: 1,
     stocksUnlocked: false,
     hitmanUnlocked: false,
@@ -55,15 +55,20 @@ const game = {
     lastIncomeTime: Date.now(),
 
     scroll:function(direction) {
+        let nextBiz = this.selectedBusiness + 1
+        let prevBiz = this.selectedBusiness - 1
+
         if (direction === "r") {
-            if (this.selectedBusiness+1 >= this.businesses.length) {
+            if (nextBiz >= this.businesses.length) {
                 this.selectedBusiness = 0
-            } else {
+            } else if (this.shopUnlocked >= nextBiz) {
                 this.selectedBusiness++
             }
         } else if (direction === "l") {
-            if (this.selectedBusiness-1 < 0) {
-                this.selectedBusiness = this.businesses.length - 1
+            if (prevBiz < 0) {
+                if (this.shopUnlocked === 9) {
+                    this.selectedBusiness = this.businesses.length - 1
+                }
             } else {
                 this.selectedBusiness--
             }
@@ -71,6 +76,8 @@ const game = {
             console.log("argument in scroll function is wrong")
         }
     },
+
+    //assume everYTHING IS BOUGHT IN ORDER
 
     init:function() {
 
@@ -90,12 +97,11 @@ const game = {
         shopButtons.forEach((btn, i) => {
             btn.addEventListener("click", () => {
                 let business = game.businesses[i + 1];
-                console.log(i)
-                console.log(business)
                 if (game.money >= business.price) {
                     if (business.unlocked === false) {
                         game.money -= business.price;
                         business.unlocked = true;
+                        this.shopUnlocked = i + 1
                         btn.style.backgroundColor = "red"
                         console.log("business bought");
                     }
@@ -122,7 +128,6 @@ const game = {
 
     render: function() {
         moneybar.innerHTML = Math.trunc(this.money)  //instead truncate here to avoid interfering with decimals and only hide from the player\
-        console.log("selctednjbusins" + this.selectedBusiness)
         businessnamediv.innerHTML = this.businesses[this.selectedBusiness].name
         iconimg.src = this.businesses[this.selectedBusiness].iconpath
         sayingdiv.innerHTML = this.businessCaptions[this.selectedBusiness]

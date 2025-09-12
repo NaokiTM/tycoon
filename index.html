@@ -11,14 +11,18 @@
 
     <title>EmpireGame</title>
 </head>
-<body class="text-white bg-black font-[Gabarito] font-bold">
+<body class="text-white bg-black font-[Gabarito] font-bold h-[100vh] flex flex-col">
 <!-- font-['Rubik_Glitch'] -->
     <div id="status" class="flex bg-slate-900 p-2 justify-between">
+
+        <!-- MONEY DISPLAY BIT -->
         <div id="moneybar" class="flex flex-col text-3xl">
             <div class="text-xs font-medium">Money</div>
             <div id="money"></div>
         </div>
-        <div class="flex-1 flex flex-col space-x-2 text-3xl">
+
+        <!-- PRESTIGE/LEVEL BIT -->
+        <div class="flex flex-col space-x-2 text-3xl">
             <div class="text-xs font-medium">Prestige</div>
             <div class="flex flex-row">
                 <div class="text-xs font-light">Lvl.</div>
@@ -28,7 +32,7 @@
     </div>
 
     <!-- make the main container flex row to have the menu bar on the left, and the rest on the right.  -->
-    <div id="mainui" class=" flex justify-center h-[100vh]">
+    <div id="mainui" class=" flex justify-center">
 
         <!-- LEFT BAR -->
         <div class="flex-[2] flex text-center flex-col h-full bg-slate-800">
@@ -67,7 +71,7 @@
                         businesssaying
                     </div>
                     <button id="upgradebusinesbutton">
-                        button to upgrade 
+                        <img src="./assets/upgrade.png" />
                     </button>
                 </div>
                 <button id="rightbtn" class="hover:cursor-pointer scale-125">
@@ -78,12 +82,33 @@
 
         <!-- RIGHT BAR -->
         <div id="shop" class="flex-[2] flex flex-col h-full bg-slate-800">
-                <div class="text-center text-lg">Shop</div>
-                <div class="flex justify-evenly flex-col h-full">
-                    <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
-                        <div id="name1"></div>
-                        <div id="price1"></div>
-                    </button>
+                <div class="text-center text-lg">Businesses</div>
+                <div class="flex justify-evenly flex-col h-screen overflow-y-auto">
+
+                    <div class="flex-1 flex flex-col items-start justify-between border-slate-600 border-2 m-2 rounded-md p-2">
+                        <div id="name1" class="text-xl"></div>
+                        <div class="flex flex-row w-full justify-between">
+                            <div class="flex-col flex">
+                                <div>Stats</div>
+                                <div class="flex flex-col text-xs font-light">
+                                    <div id="bizLevel1">Level:</div>
+                                    <div id="bizMps1">Mps: </div>
+                                    <div id="bizFunctioning1">Functioning: </div>
+                                    <div id="bizCompetition1">Competition: </div>
+                                    <div id="bizTax1">Tax:</div>
+                                </div>
+                            </div>
+
+                            <div class="flex-col justify-end mt-auto">
+                                <div class="flex flex-row">
+                                    <div id="price1" class="mr-2"></div>
+                                    <button class="bg-red-700 pl-1 pr-1 rounded-md hover:cursor-pointer hover:bg-red-500 hover:scale-110">
+                                        <div>Buy</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
                         <div id="name2"></div>
@@ -123,6 +148,11 @@
                     <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
                         <div id="name9"></div>
                         <div id="price9"></div>
+                    </button>
+
+                    <button class="flex-1 flex flex-row justify-between hover:cursor-pointer hover:bg-red-400 border-slate-600 border-2 m-2 rounded-md p-2">
+                        <div id="name10"></div>
+                        <div id="price10"></div>
                     </button>
                 </div>
         </div>

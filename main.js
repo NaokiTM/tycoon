@@ -31,7 +31,7 @@ const shopPriceDivs = document.querySelectorAll('div[id^="price"]');
 const game = {
     //true means the business is unlocked, false means its not. mps = money per second
     businesses: [
-        {name: "Sneaker flipping", unlocked: true, mps: 1, price: 0, iconpath: "./assets/sneakers.png"}, 
+        {name: "Sneaker flipping", unlocked: true, mps: 1, price: "0", iconpath: "./assets/sneakers.png"}, 
         {name: "Manga studio", unlocked: false, mps: 10, price: 100, iconpath: "./assets/manga.png"},
         {name: "Trading card shop", unlocked: false, mps: 100, price: 1000, iconpath: "./assets/cards.png"}, 
         {name: "Wcdonalds franchise", unlocked: false, mps: 500, price: 10000, iconpath: "./assets/burger.png"},
@@ -40,7 +40,7 @@ const game = {
         {name: "Gaming PC factory", unlocked: false, mps: 10000, price: 100000000, iconpath: "./assets/pc.png"},
         {name: "Silk path", unlocked: false, mps: 20000, price: 1000000000, iconpath: "./assets/silk.png"},
         {name: "Mafia boss", unlocked: false, mps: 50000, price: 10000000000, iconpath: "./assets/mafia.png"},
-        {name: "Illuminatied", unlocked: false, mps: 100000, price: 100000000, iconpath: "./assets/illuminati.png"},
+        {name: "Illuminatied", unlocked: false, mps: 100000, price: 100000000000, iconpath: "./assets/illuminati.png"},
     ],
 
     businessCaptions: [
@@ -100,7 +100,7 @@ const game = {
 
         shopButtons.forEach((btn, i) => {
             btn.addEventListener("click", () => {
-                let business = game.businesses[i + 1];
+                let business = game.businesses[i];
                 if (game.money >= business.price) {
                     if (business.unlocked === false) {
                         game.money -= business.price;
@@ -132,11 +132,11 @@ const game = {
 
     render: function() {
         shopNameDivs.forEach((div, i) => {
-            div.innerHTML = this.businesses[i + 1].name
+            div.innerHTML = this.businesses[i].name
         })
 
         shopPriceDivs.forEach((div, i) => {
-            div.innerHTML = "$" + this.businesses[i + 1].price
+            div.innerHTML = "$" + this.businesses[i].price
         })
 
         moneybar.innerHTML = "$" + Math.trunc(this.money)  //instead truncate here to avoid interfering with decimals and only hide from the player

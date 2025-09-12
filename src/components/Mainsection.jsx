@@ -5,7 +5,7 @@ import Rightbar from './Rightbar'
 
 const Mainsection = () => {
   return (
-    <div id="mainui" class="flex justify-center h-full flex-1 overflow-auto">
+    <div id="mainui" className="flex justify-center h-full flex-1 overflow-auto">
         <Leftbar />
         <Midsection />
         <Rightbar />

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer class="flex text-xs bg-black">
+    <footer className="flex text-xs bg-black">
         <a href="https://www.flaticon.com/free-icons/sneakers" title="sneakers icons">Sneakers icons created by Good Ware - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/cards" title="cards icons">Cards icons created by Victoruler - Flaticon</a>
         <a href="https://www.flaticon.com/free-icons/manga" title="manga icons">Manga icons created by Freepik - Flaticon</a>

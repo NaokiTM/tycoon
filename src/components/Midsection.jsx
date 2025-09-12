@@ -12,15 +12,18 @@ const Midsection = () => {
         let nextBiz = currentBiz + 1
         let prevBiz = currentBiz - 1
 
+        console.log("console.log" + nextBiz)
+        console.log("console.log" + currentBiz)
+
         if (direction === "r") {
             if (nextBiz >= businesses.length) {
                 setCurrentBiz(0)
-            } else if (unlockedCount >= nextBiz) {
+            } else if (unlockedCount > nextBiz) {  //cant use >= because it will increase currentbiz again just because 
                 setCurrentBiz(currentBiz + 1)
             }
         } else if (direction === "l") {
             if (prevBiz < 0) {
-                if (unlockedCount === 9) {
+                if (unlockedCount === 10) {
                     setCurrentBiz(businesses.length - 1)
                 }
             } else {

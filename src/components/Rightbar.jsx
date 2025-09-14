@@ -16,8 +16,8 @@ const Rightbar = () => {
           name={biz.name}
           level={biz.level}
           mps={biz.mps}
-          isFunctioning={biz.isFunctioning}
-          competition={biz.competition}
+          isFunctioning={biz.isFunctioning.toString()}
+          competition={biz.competition === "" ? "None" : biz.competition.toString()}
           tax={biz.tax}
           price={biz.price}
           icon={biz.icon}

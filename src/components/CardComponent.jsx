@@ -8,10 +8,9 @@ const CardComponent = (props) => {
   const buy = () => {
     let business = businesses[props.index]
     if (money >= business.price) {
-        if (business.unlocked === false) {
+        //the whole business.slice and .every bit is to check if all businesses including the current business have an unlocked = true property. 
+        if (business.unlocked === false && businesses.slice(0, props.index).every(business => business.unlocked)) {
             setMoney(money - business.price);
-
-            console.log("index:", props.index, "business:", businesses[props.index])
 
             //creates new array to change the reference so react rerenders
             const updated = [...businesses] // new array
@@ -27,7 +26,6 @@ const CardComponent = (props) => {
         //code to make button go red or give warning saying its already unlocked
     } else {
         //not enough money
-        console.log("not enoguh money")
     }
   }  
 

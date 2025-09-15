@@ -11,12 +11,9 @@ const Topbar = (props) => {
         </div>
 
         {/* <!-- PRESTIGE/LEVEL BIT --> */}
-        <div class="flex flex-col space-x-2 text-3xl">
-            <div class="text-xs font-medium">Prestige</div>
-            <div class="flex flex-row">
-                <div class="text-xs font-light">Lvl.</div>
-                <div>{props.level}</div>
-            </div>
+        <div class="flex flex-col text-3xl">
+            <div class="text-xs font-medium">Level</div>
+            <div className='text-center'>{props.level}</div>
         </div>
     </div>
   )

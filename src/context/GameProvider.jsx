@@ -20,9 +20,12 @@ const baseBusinesses = [
 
 // Provider Component
 export function GameProvider({ children }) {
+
   const [businesses, setBusinesses] = useState(baseBusinesses);
+
+  //Some starting values - Change for testing if necessary
   const [money, setMoney] = useState(1000000)
-  const [level, setLevel] = useState(0)
+  const [level, setLevel] = useState(1)
   const [unlockedCount, setUnlockedCount] = useState(1) //we already own a business at the start so count should be 1
   const [clickMultiplier, setClickMultiplier] = useState(1)
 

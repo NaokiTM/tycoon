@@ -40,14 +40,17 @@ const Midsection = () => {
     }
 
   return (
-    <div className="flex flex-col flex-[6] justify-evenly h-full">
-        <div id="news" className="bg-red-600 pl-1 italic">BREAKING: I just started the game</div>
+    <div className="flex flex-col flex-[6] justify-evenly">
 
         <div id="business" className="flex flex-row text-center items-center h-full justify-center space-x-4">
             <button id="leftbtn" className="hover:cursor-pointer scale-125" onClick={() => calcNextCurrentBiz("l")}>
                 <img src="/arrback.png" className="hover:scale-150 transition"/>
             </button>
             <div className="flex-col">
+{/* 
+                <div className='text-xs'>Net Worth:</div>
+                <div>{money}</div> */}
+
                 <div className="flex justify-center ">
                     <button className="hover:cursor-pointer hover:scale-110 transition" id="businessbutton" onClick={() => calcClickAmount(clickMultiplier)}>
                         <img src={businesses[currentBiz].icon} alt={businesses[currentBiz].name}></img>

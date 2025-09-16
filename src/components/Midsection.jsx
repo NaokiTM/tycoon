@@ -3,9 +3,8 @@ import { GameContext } from '../context/GameContext'
 
 const Midsection = () => {
     const [currentBiz, setCurrentBiz] = useState(0)
-    const {money, setMoney, businesses, unlockedCount, clickMultiplier } = useContext(GameContext);
-
-    console.log("currentbiz" + currentBiz)
+    const {money, setMoney, businesses, setBusinesses, unlockedCount } = useContext(GameContext);
+    let selected = businesses[currentBiz]
 
 
     const calcNextCurrentBiz = (direction) => {
@@ -35,8 +34,28 @@ const Midsection = () => {
     }
 
     const calcClickAmount = (multiplier) => {
-        console.log("clicked")
         setMoney(money + multiplier)
+    }
+
+    const handleUpgrade = () => {
+        if (money < selected.upgradeCost) {
+            console.log("not enough money to upgrade")
+        } else {
+            setMoney(money - selected.upgradeCost)
+            setBusinesses(prev => 
+                prev.map(b => 
+                    b.id === selected.id
+                        ? {
+                            ...b,
+                            level: b.level + 1,
+                            mps: b.mps * 2,
+                            mpc: b.mpc * 2,
+                            upgradeCost: b.upgradeCost * 4
+                        }
+                        : b
+                )
+            )
+        }
     }
 
   return (
@@ -53,21 +72,26 @@ const Midsection = () => {
                     <div className='text-xs'>Net Worth:</div>
                     <div>{money}</div> 
                 */}
+                <div>Level</div>
+                <div className='text-2xl'>{selected.level}</div>
 
-                <div className="flex justify-center ">
-                    <button className="hover:cursor-pointer hover:scale-110 transition" id="businessbutton" onClick={() => calcClickAmount(clickMultiplier)}>
+                <div className="flex justify-center p-4">
+                    <button className="hover:cursor-pointer hover:scale-110 transition" id="businessbutton" onClick={() => calcClickAmount(businesses[currentBiz].mpc)}>
                         <img src={businesses[currentBiz].icon} alt={businesses[currentBiz].name}></img>
                     </button>
                 </div>
-                <div className="" id="businessname">
+                <div className="text-2xl" id="businessname">
                     {businesses[currentBiz].name}
                 </div>
                 <div className="italic" id="businesssaying">
                     {businesses[currentBiz].caption}
                 </div>
-                <button id="upgradebusinesbutton" className='p-2 bg-green-700 rounded-2xl mt-6 hover:cursor-pointer'>
-                    Upgrade
-                </button>
+                <div className='flex justify-center'>
+                    <button id="upgradebusinesbutton" className='p-2 bg-purple-600 rounded-2xl mt-6 hover:cursor-pointer flex flex-col w-40' onClick={() => handleUpgrade()}>
+                        <div>Upgrade</div>
+                        <div>{businesses[currentBiz].upgradeCost}</div>
+                    </button>
+                </div>
             </div>
 
 

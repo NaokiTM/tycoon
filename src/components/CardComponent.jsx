@@ -44,6 +44,10 @@ const CardComponent = (props) => {
                         <div className='pr-2'>Mps: </div>
                         <div>{props.mps}</div>
                     </div>
+                    <div className='flex flex-row'>
+                        <div className='pr-2'>MpC: </div>
+                        <div>{props.mpc}</div>
+                    </div>
                     <div className='flex flex-row'> 
                         <div className='pr-2'> Functioning: </div>
                         <div>{props.isFunctioning}</div>

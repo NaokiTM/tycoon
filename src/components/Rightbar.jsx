@@ -6,7 +6,7 @@ const Rightbar = () => {
   const {businesses} = useContext(GameContext)
 
   return (
-    <div className='p-4 flex-2'>
+    <div className='p-2 flex-2'>
       <div className="flex flex-col bg-slate-800 rounded-xl h-full">
 
         <div className="text-center text-lg">Businesses</div>

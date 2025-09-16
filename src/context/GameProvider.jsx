@@ -17,11 +17,30 @@ const baseBusinesses = [
   {id: 10, name: "Illuminatied", unlocked: false, mps: 100000, price: 100000000000, icon: "/illuminati.png", caption: "You learn advanced alchemy to turn printer paper into banknotes", isFunctioning: true, competition: "", tax: 0, level: 1, mpc: 100000, upgradeCost: 10000000},
 ];
 
+const baseNewsArticles = [
+  "Sneaker reselling rising in popularity, Teenagers and adults alike making thousands of dollars a day. ",
+  "Famous manga writer has died after a fan crowd surge to his new meet and greet. fans will switch to fanmade light novel instead.", 
+  "'Whale' Resellers are leaving no cards for children - upset parents urge trading card shops to restock ", 
+  "Surging obesity and heart disease rates in healthy adults - WcDonalds to blame? health experts demand a lawsuit", 
+  "Famous gambler casey nuw has won the jackpot at the world series poker with a whopping $40 million return", 
+  "Wall Street shocked as 'baby mafia' launches IPO — toddlers with juice boxes outbid veteran investors overnight.",
+  "Local hitman accidentally listed services on Fiverr, now fully booked with requests ranging from 'scare my boss' to 'assassinate pineapple pizza'.",
+  "Stock for 'Invisible Getaway Cars Inc.' skyrockets after shareholders mysteriously vanish mid-meeting.",
+  "Federal Reserve claims inflation is under control, but loan sharks report 'record-breaking kneecap collections' in Q3.",
+  "Startup 'MafiaCoin' promises untraceable transactions, but investors complain it only buys garlic bread at suspicious Italian restaurants.",
+  "WcDonalds franchise sued by rival burger cartel — trial postponed after the judge received 14 extra-large combo meals at his doorstep.",
+  "Professional hitman unionizes, demanding dental, health insurance, and a standardized 'bulletproof vest allowance'.",
+  "New business school course teaches 'Corporate Extortion 101' — enrollment doubles after professors start charging protection fees.",
+  "Underground casino introduces 'stocks roulette' — bet red, black, or whether Elon Musk tweets within the next 5 minutes.",
+  "National Pizza Chain collapses in stock market after it’s revealed their 'secret sauce' was just laundered marinara money."
+]
+
 
 // Provider Component
 export function GameProvider({ children }) {
 
   const [businesses, setBusinesses] = useState(baseBusinesses);
+  const [articles, setArticles] = useState(baseNewsArticles)
 
   //Some starting values - Change for testing if necessary
   const [money, setMoney] = useState(0)
@@ -42,8 +61,13 @@ export function GameProvider({ children }) {
     return () => clearInterval(interval); // cleanup
   }, [businesses]);
 
+  // useEffect(() => {
+  //   const savedMoney = localStorage.getItem("money")
+  //   const savedBusinesses = localStorag
+  // }, [])
+
   return (
-    <GameContext.Provider value={{ businesses, setBusinesses, money, setMoney, level, setLevel, unlockedCount, setUnlockedCount }}>
+    <GameContext.Provider value={{ businesses, setBusinesses, articles, setArticles, money, setMoney, level, setLevel, unlockedCount, setUnlockedCount }}>
       {children}
     </GameContext.Provider>
   );

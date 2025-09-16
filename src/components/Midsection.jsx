@@ -1,9 +1,11 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { GameContext } from '../context/GameContext'
 
 const Midsection = () => {
     const [currentBiz, setCurrentBiz] = useState(0)
-    const {money, setMoney, businesses, setBusinesses, unlockedCount } = useContext(GameContext);
+    const [currentArticle, setCurrentArticle] = useState("")
+    const {money, setMoney, businesses, setBusinesses, articles, unlockedCount } = useContext(GameContext);
+    const choose = (arr) => {return arr[Math.floor(Math.random()*arr.length)];}
     let selected = businesses[currentBiz]
 
 
@@ -58,14 +60,29 @@ const Midsection = () => {
         }
     }
 
+    //GENERATE RANDOM NEWS ARTICLE EVERY 2 MINUTES
+    //useeffect and articles dependency needed to avoid infinite loop from every rerender
+    useEffect(() => {
+        setCurrentArticle(choose(articles))
+        setTimeout(() => {
+          setCurrentArticle(choose(articles))
+        }, 120000); // 120000 ms
+    }, [articles]) 
+
   return (
     <div className="flex flex-col flex-[6] justify-evenly">
+
+        <div className='bg-red-500 italic mt-2 pl-1 pr-1 rounded-md flex'>
+            <div className='mr-1'>NEWS:</div>
+            <div className='overflow-hidden w-full'>
+                <div className='infinite-scroll w-full'>{currentArticle}</div>
+            </div>
+        </div>
 
         <div id="business" className="flex flex-row text-center items-center h-full justify-center space-x-4">
             <button id="leftbtn" className="hover:cursor-pointer scale-125" onClick={() => calcNextCurrentBiz("l")}>
                 <img src="/arrback.png" className="hover:scale-150 transition"/>
             </button>
-
 
             <div className="flex-col overflow-y-auto w-80">
                 {/* 

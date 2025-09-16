@@ -16,7 +16,7 @@ const Footer = () => {
   }, [])
 
   return (
-    <footer className="flex text-xs bg-black relative" ref={dropdownRef}>
+    <footer className="flex text-xs bg-black relative space-x-2 p-1" ref={dropdownRef}>
       <button className='hover:underline hover:cursor-pointer' onClick={() => setIsAttribsOpened(prev => !prev)}>Attributions</button>
 
       { isAttribsOpened && (
@@ -42,6 +42,7 @@ const Footer = () => {
           <a className = 'hover:text-blue-400 hover:underline' href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by Freepik - Flaticon</a>
         </div>
       )}
+      <a href='https://github.com/NaokiTM/webgame' className='hover:underline'>Github Repo</a>
     </footer>
   )
 }

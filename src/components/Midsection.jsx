@@ -75,7 +75,7 @@ const Midsection = () => {
         <div className='bg-red-500 italic mt-2 pl-1 pr-1 rounded-md flex'>
             <div className='mr-1'>NEWS:</div>
             <div className='overflow-hidden w-full'>
-                <div className='infinite-scroll w-full'>{currentArticle}</div>
+                <div className='infinite-scroll w-full text-nowrap'>{currentArticle}</div>
             </div>
         </div>
 

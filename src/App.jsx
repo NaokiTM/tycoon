@@ -17,11 +17,11 @@ function App() {
       <div className='absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 blur-3xl w-full h-full'></div>
 
       <div className='relative flex flex-col h-full'>
+        <Footer />
         <Topbar money={money} level={level} />
         <div className='flex-1 overflow-auto'>
           <Mainsection />
         </div>
-        <Footer />
       </div>
     </div>
   )

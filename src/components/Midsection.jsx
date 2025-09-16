@@ -46,10 +46,13 @@ const Midsection = () => {
             <button id="leftbtn" className="hover:cursor-pointer scale-125" onClick={() => calcNextCurrentBiz("l")}>
                 <img src="/arrback.png" className="hover:scale-150 transition"/>
             </button>
+
+
             <div className="flex-col">
-{/* 
-                <div className='text-xs'>Net Worth:</div>
-                <div>{money}</div> */}
+                {/* 
+                    <div className='text-xs'>Net Worth:</div>
+                    <div>{money}</div> 
+                */}
 
                 <div className="flex justify-center ">
                     <button className="hover:cursor-pointer hover:scale-110 transition" id="businessbutton" onClick={() => calcClickAmount(clickMultiplier)}>
@@ -66,6 +69,8 @@ const Midsection = () => {
                     Upgrade
                 </button>
             </div>
+
+
             <button id="rightbtn" className="hover:cursor-pointer scale-125" onClick={() => calcNextCurrentBiz("r")}>
                 <img src="/arrfront.png" className="hover:scale-150 transition" />
             </button>

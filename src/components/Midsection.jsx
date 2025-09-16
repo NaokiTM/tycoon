@@ -48,7 +48,7 @@ const Midsection = () => {
             </button>
 
 
-            <div className="flex-col">
+            <div className="flex-col overflow-y-auto w-80">
                 {/* 
                     <div className='text-xs'>Net Worth:</div>
                     <div>{money}</div> 

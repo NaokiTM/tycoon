@@ -3,7 +3,7 @@ import React from 'react'
 const Topbar = (props) => {
 
   return (
-    <div id="status" class="flex bg-slate-900 p-2 justify-between mt-2 ml-2 mr-2 rounded-xl">
+    <div id="status" class="flex bars p-2 justify-between mt-2 ml-2 mr-2 rounded-xl">
         {/* <!-- MONEY DISPLAY BIT --> */}
         <div id="moneybar" class="flex flex-col text-2xl">
             <div class="text-xs font-medium">Money</div>

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.bars {
+    background-color: #0f0f0f;
+}
+
 .infinite-scroll {
     animation: scrollAnimation 15s linear 0s infinite forwards;
 }

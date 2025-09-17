@@ -72,7 +72,7 @@ const Midsection = () => {
   return (
     <div className="flex flex-col flex-[6] justify-evenly">
 
-        <div className='bg-red-500 italic mt-2 pl-1 pr-1 rounded-md flex'>
+        <div className='bg-red-500 border-1 italic mt-2 pl-1 pr-1 rounded-md flex'>
             <div className='mr-1'>NEWS:</div>
             <div className='overflow-hidden w-full'>
                 <div className='infinite-scroll w-full text-nowrap'>{currentArticle}</div>

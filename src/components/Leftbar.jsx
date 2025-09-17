@@ -4,7 +4,7 @@ import Stockmarket from './Stockmarket'
 const Leftbar = () => {
   return (  
     <div className='p-2 flex-2 h-full text-center '>
-        <div className="h-full bg-slate-800 flex flex-col rounded-xl">
+        <div className="h-full bars flex flex-col rounded-xl">
             <div className="flex flex-col flex-1 text-center text-xl" id="minigames">
                 <div>Minigames</div>
 

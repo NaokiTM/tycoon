@@ -7,7 +7,7 @@ const Rightbar = () => {
 
   return (
     <div className='p-2 flex-2'>
-      <div className="flex flex-col bg-slate-800 rounded-xl h-full">
+      <div className="flex flex-col bars rounded-xl h-full">
 
         <div className="text-center text-lg">Businesses</div>
 

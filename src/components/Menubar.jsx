@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-const Footer = () => {
+const Menubar = () => {
 
   const [isAttribsOpened, setIsAttribsOpened] = useState(false)
   const dropdownRef = useRef(null)
@@ -26,7 +26,7 @@ const Footer = () => {
             vertical: 'bottom',
             horizontal: 'left',
           }}
-          className=' p-2 absolute left-0 overflow-hidden flex flex-col bg-neutral-900 rounded-md top-full'
+          className=' p-2 absolute left-0 overflow-hidden flex flex-col bg-neutral-900 border-1 border-solid top-full'
         >
           <a className = 'hover:text-blue-400 hover:underline' href="https://www.flaticon.com/free-icons/sneakers" title="sneakers icons">Sneakers icons created by Good Ware - Flaticon</a>
           <a className = 'hover:text-blue-400 hover:underline' href="https://www.flaticon.com/free-icons/cards" title="cards icons">Cards icons created by Victoruler - Flaticon</a>
@@ -47,4 +47,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default Menubar

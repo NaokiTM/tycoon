@@ -9,7 +9,7 @@ const Rightbar = () => {
     <div className='p-2 flex-2'>
       <div className="flex flex-col bars rounded-xl h-full">
 
-        <div className="text-center text-lg">Businesses</div>
+        <div className="text-center text-lg">Ventures</div>
 
         <div className="flex justify-evenly flex-col overflow-y-auto mt-auto">
         {businesses.map((biz, index) => (

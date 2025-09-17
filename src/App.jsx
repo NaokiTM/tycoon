@@ -12,9 +12,9 @@ function App() {
   
 
   return (
-    <div className="text-white font-[Gabarito] font-bold flex flex-col relative h-screen bg-purple-600">
+    <div className="text-white font-[Gabarito] font-bold flex flex-col relative h-screen bg-black">
 
-      {/* <div className='absolute inset-0 bg-gradient-to-r from-neutral-400 via-neutral-800 to-black blur-3xl w-full h-full'></div> */}
+      <div className='absolute inset-0 bg-gradient-to-r from-purple-700 to-black blur-3xl w-full h-full'></div>
 
       <div className='relative flex flex-col h-full'>
         <Menubar/>

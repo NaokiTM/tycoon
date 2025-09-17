@@ -53,8 +53,8 @@ const CardComponent = (props) => {
                         <div>{props.isFunctioning}</div>
                     </div>
                     <div className='flex flex-row'>
-                        <div className='pr-2'>Competition: </div>
-                        <div>{props.competition}</div>
+                        <div className='pr-2'>Risk: </div>
+                        <div>{props.risk}</div>
                     </div>
                     <div className='flex flex-row'> 
                         <div className='pr-2'>Tax: </div>

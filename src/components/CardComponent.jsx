@@ -65,7 +65,7 @@ const CardComponent = (props) => {
             </div>
 
             <div className="flex-col justify-end mt-auto">
-                <div id="bizSidebarIcon">
+                <div id="bizSidebarIcon" className=" flex justify-end">
                     <img src={props.icon} alt={props.name} className='scale-75'/>
                 </div>
                 { businesses[props.index].unlocked ? (

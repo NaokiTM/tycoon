@@ -43,7 +43,7 @@ export function GameProvider({ children }) {
   const [articles, setArticles] = useState(baseNewsArticles)
 
   //Some starting values - Change for testing if necessary
-  const [money, setMoney] = useState(0)
+  const [money, setMoney] = useState(100000000000000)
   const [level, setLevel] = useState(1)
   const [unlockedCount, setUnlockedCount] = useState(1) //we already own a business at the start so count should be 1
 

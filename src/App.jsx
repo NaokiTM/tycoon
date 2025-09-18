@@ -12,7 +12,7 @@ function App() {
   
 
   return (
-    <div className="text-white font-[Gabarito] font-bold flex flex-col relative h-screen bg-black">
+    <div className="text-white font-[Gabarito] font-bold flex flex-col relative h-screen bg-black select-none">
 
       <div className='absolute inset-0 bg-gradient-to-r from-purple-700 to-black blur-3xl w-full h-full'></div>
 

@@ -8,6 +8,7 @@ const Midsection = () => {
     const choose = (arr) => {return arr[Math.floor(Math.random()*arr.length)];}
     let selected = businesses[currentBiz]
 
+    const [showFeedback, setShowFeedback] = useState(false)
 
     const calcNextCurrentBiz = (direction) => {
         let nextBiz = currentBiz + 1
@@ -35,8 +36,13 @@ const Midsection = () => {
         }
     }
 
-    const calcClickAmount = (multiplier) => {
+    const handleClick = (multiplier) => {
         setMoney(money + multiplier)
+        setShowFeedback(true)
+    }
+
+    const handleClickEnd = () => {
+        setShowFeedback(false)
     }
 
     const handleUpgrade = () => {
@@ -93,10 +99,12 @@ const Midsection = () => {
                 <div className='text-2xl'>{selected.level}</div>
 
                 <div className="flex justify-center p-4">
-                    <button className="hover:cursor-pointer hover:scale-110 transition" id="businessbutton" onClick={() => calcClickAmount(businesses[currentBiz].mpc)}>
+                    {showFeedback && <div className='absolute top-[50%] z-10 clickfeedback text-4xl' onAnimationEnd={handleClickEnd}>+{selected.mpc}</div>}
+                    <button className="hover:cursor-pointer hover:scale-110 transition" id="businessbutton" onClick={() => handleClick(businesses[currentBiz].mpc)} >
                         <img src={businesses[currentBiz].icon} alt={businesses[currentBiz].name}></img>
                     </button>
                 </div>
+
                 <div className="text-2xl" id="businessname">
                     {businesses[currentBiz].name}
                 </div>

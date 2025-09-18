@@ -10,11 +10,27 @@
     animation: scrollAnimation 15s linear 0s infinite forwards;
 }
 
+.clickfeedback {
+    animation: clickanimation 0.3s forwards;
+}
+
 @keyframes scrollAnimation {
     from {
         transform: translateX(100%);
     }
     to {
         transform: translate(-100%)
+    }
+}
+
+@keyframes clickanimation {
+    0% {
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+    50% {
+        transform: translateY(10%)
+    }
+    to {
+        transform: translateY(0%)
     }
 }

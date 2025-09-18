@@ -72,7 +72,7 @@ const CardComponent = (props) => {
                     <div className="flex justify-end">Owned</div>
                 ) : (
                     <div className="flex flex-row justify-end">
-                        <div className="mr-2">${props.price}</div>
+                        <div className="mr-2">${moneyFormatter(props.price)}</div>
                         <button className="bg-red-700 pl-1 pr-1 rounded-md hover:cursor-pointer hover:bg-red-500 hover:scale-110" onClick={() => buy()}>
                             <div>Buy</div>
                         </button>

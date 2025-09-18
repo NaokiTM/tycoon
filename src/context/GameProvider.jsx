@@ -14,7 +14,7 @@ const baseBusinesses = [
   {id: 7, name: "Assasination service", unlocked: false, mps: 10000, price: 100000000, icon: "/skull.png", caption: "Hitmen are a popular service on the dark web - a perfect opporunity to scale your empire", isFunctioning: true, risk: "", tax: 0, level: 1, mpc: 5000, upgradeCost: 100000},
   {id: 8, name: "Illegal nuclear power", unlocked: false, mps: 20000, price: 1000000000, icon: "/nuclear.png", caption: "fat bank >>> your countries safety", isFunctioning: true, risk: "", tax: 0, level: 1, mpc: 10000, upgradeCost: 500000},
   {id: 9, name: "Illegal oil rig", unlocked: false, mps: 50000, price: 10000000000, icon: "/oil.png", caption: "Oil has appeared out of the enormous craters from your nuclear weapons testing", isFunctioning: true, risk: "", tax: 0, level: 1, mpc: 10000, upgradeCost: 1000000},
-  {id: 10, name: "Nuclear weapons dealer", unlocked: false, mps: 100000, price: 100000000000, icon: "/nuclear.png", caption: "You secretly control the worlds nuclear weapons", isFunctioning: true, risk: "", tax: 0, level: 1, mpc: 100000, upgradeCost: 10000000},
+  {id: 10, name: "Nuclear weapons dealer", unlocked: false, mps: 100000, price: 100000000000, icon: "/atomic.png", caption: "You secretly control the worlds nuclear weapons", isFunctioning: true, risk: "", tax: 0, level: 1, mpc: 100000, upgradeCost: 10000000},
 ];
 
 const baseNewsArticles = [
@@ -47,6 +47,41 @@ export function GameProvider({ children }) {
   const [level, setLevel] = useState(1)
   const [unlockedCount, setUnlockedCount] = useState(1) //we already own a business at the start so count should be 1
 
+  const formatLong = [
+  ' k',' million',' billion',' trillion',' quadrillion',' quintillion',
+  ' sextillion',' septillion',' octillion',' nonillion'
+  ];
+
+  const prefixes = ['', 'un','duo','tre','quattuor','quin','sex','septen','octo','novem'];
+
+  const suffixes = [
+    'decillion','vigintillion','trigintillion','quadragintillion','quinquagintillion',
+    'sexagintillion','septuagintillion','octogintillion','nonagintillion'
+  ];
+
+  const moneyFormatter = (num) => {
+      if (num < 1000) return num.toString(); 
+
+        let exp = Math.floor(Math.log10(num));        // number of digits - 1
+        let thousandsIndex = Math.floor(exp / 3);              // how many 1000s groups
+        let shortNum = num / Math.pow(10, thousandsIndex * 3); // scaled number
+
+
+        // Small range: use formatLong
+        if (thousandsIndex <= formatLong.length) {
+          return shortNum.toFixed(2) + formatLong[thousandsIndex - 1];
+        }
+              
+        // Larger range: calculate prefix + suffix
+        thousandsIndex -= formatLong.length; // shift past simple names
+        let prefixIndex = (thousandsIndex - 1) % prefixes.length;
+        let suffixIndex = Math.floor((thousandsIndex - 1) / prefixes.length);
+
+        if (suffixIndex >= suffixes.length) return num.toExponential(2); // fallback
+
+        return shortNum.toFixed(2) + " " + prefixes[prefixIndex] + suffixes[suffixIndex];
+  }
+
   useEffect(() => {
     const interval = setInterval(() => {
       setMoney((prev) => {  //figure this out no matter what cuz dont get it atm. its annoying. and why without the newmoney variable it wouldnt go up.
@@ -61,13 +96,14 @@ export function GameProvider({ children }) {
     return () => clearInterval(interval); // cleanup
   }, [businesses]);
 
+
   // useEffect(() => {
   //   const savedMoney = localStorage.getItem("money")
   //   const savedBusinesses = localStorag
   // }, [])
 
   return (
-    <GameContext.Provider value={{ businesses, setBusinesses, articles, setArticles, money, setMoney, level, setLevel, unlockedCount, setUnlockedCount }}>
+    <GameContext.Provider value={{ businesses, setBusinesses, articles, setArticles, money, setMoney, level, setLevel, unlockedCount, setUnlockedCount, moneyFormatter }}>
       {children}
     </GameContext.Provider>
   );

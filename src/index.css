@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+img {
+    pointer-events: none;
+}
+
 .bars {
     background-color: #0f0f0f;
     border: 2px solid;
@@ -12,6 +16,8 @@
 
 .clickfeedback {
     animation: clickanimation 0.3s forwards;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
 }
 
 @keyframes scrollAnimation {
@@ -25,12 +31,12 @@
 
 @keyframes clickanimation {
     0% {
-        transform: scale3d(1.2, 1.2, 1.2);
+        transform: scale3d(2, 2, 2);
     }
     50% {
-        transform: translateY(10%)
+        transform: translateY(-50%)
     }
     to {
-        transform: translateY(0%)
+        transform: translateY(-100%)
     }
 }

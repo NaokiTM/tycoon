@@ -3,7 +3,7 @@ import { GameContext } from "../context/GameContext";
 
 const CardComponent = (props) => {
 
-  const {businesses, money, setMoney, setBusinesses, setUnlockedCount} = useContext(GameContext)
+  const {businesses, money, setMoney, setBusinesses, setUnlockedCount, moneyFormatter} = useContext(GameContext)
 
   const buy = () => {
     let business = businesses[props.index]
@@ -41,12 +41,12 @@ const CardComponent = (props) => {
                         <div>{props.level}</div>
                     </div>
                     <div className='flex flex-row'>
-                        <div className='pr-2'>Mps: </div>
-                        <div>{props.mps}</div>
+                        <div className='pr-2'>Money per second: </div>
+                        <div>{moneyFormatter(props.mps)}</div>
                     </div>
                     <div className='flex flex-row'>
-                        <div className='pr-2'>MpC: </div>
-                        <div>{props.mpc}</div>
+                        <div className='pr-2'>Money per click: </div>
+                        <div>{moneyFormatter(props.mpc)}</div>
                     </div>
                     <div className='flex flex-row'> 
                         <div className='pr-2'> Functioning: </div>
@@ -58,7 +58,7 @@ const CardComponent = (props) => {
                     </div>
                     <div className='flex flex-row'> 
                         <div className='pr-2'>Tax: </div>
-                        <div>{props.tax}</div>
+                        <div>{moneyFormatter(props.tax)}</div>
                     </div>
 
                 </div>

@@ -4,7 +4,7 @@ import { GameContext } from '../context/GameContext'
 const Midsection = () => {
     const [currentBiz, setCurrentBiz] = useState(0)
     const [currentArticle, setCurrentArticle] = useState("")
-    const {money, setMoney, businesses, setBusinesses, articles, unlockedCount } = useContext(GameContext);
+    const {money, setMoney, businesses, setBusinesses, articles, unlockedCount, moneyFormatter } = useContext(GameContext);
     const choose = (arr) => {return arr[Math.floor(Math.random()*arr.length)];}
     let selected = businesses[currentBiz]
 
@@ -107,7 +107,7 @@ const Midsection = () => {
 
                     {/* maps all feedback popups on the feedback array */}
                     {feedbacks.map((fb) => (
-                        <div key={fb.id} className='absolute top-[50%] z-10 clickfeedback pointer-events-none text-4xl' onAnimationEnd={() => handleClickEnd(fb.id)}>+${selected.mpc}</div>
+                        <div key={fb.id} className='absolute top-[50%] z-10 clickfeedback pointer-events-none text-4xl' onAnimationEnd={() => handleClickEnd(fb.id)}>+${moneyFormatter(selected.mpc)}</div>
                     ))}
 
                     <button className="hover:cursor-pointer hover:scale-110 transition " id="businessbutton" onClick={() => handleClick()} >
@@ -124,7 +124,7 @@ const Midsection = () => {
                 <div className='flex justify-center'>
                     <button id="upgradebusinesbutton" className='p-2 bg-purple-600 rounded-2xl mt-6 hover:cursor-pointer flex flex-col w-40' onClick={() => handleUpgrade()}>
                         <div>Upgrade</div>
-                        <div>{businesses[currentBiz].upgradeCost}</div>
+                        <div>${moneyFormatter(businesses[currentBiz].upgradeCost)}</div>
                     </button>
                 </div>
             </div>

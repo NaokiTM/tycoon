@@ -8,7 +8,8 @@ const Midsection = () => {
     const choose = (arr) => {return arr[Math.floor(Math.random()*arr.length)];}
     let selected = businesses[currentBiz]
 
-    const [showFeedback, setShowFeedback] = useState(false)
+    const [feedbacks, setFeedbacks] = useState([])
+
 
     const calcNextCurrentBiz = (direction) => {
         let nextBiz = currentBiz + 1
@@ -36,13 +37,15 @@ const Midsection = () => {
         }
     }
 
-    const handleClick = (multiplier) => {
-        setMoney(money + multiplier)
-        setShowFeedback(true)
-    }
+    const handleClick = () => {
+        setMoney(money + selected.mpc)
 
-    const handleClickEnd = () => {
-        setShowFeedback(false)
+        
+        const id = Date.now() + Math.random(); // unique id for this feedback
+        setFeedbacks((prev) => [...prev, { id, value: `+${selected.mpc}` }]);} //Add new feedback instance onto the array of feedbacks on its previous state
+
+    const handleClickEnd = (id) => {
+        setFeedbacks((prev) => prev.filter((feedback) => feedback.id !== id)); //filter out any feedbacks that dont match the id of the instance being removed
     }
 
     const handleUpgrade = () => {
@@ -98,9 +101,16 @@ const Midsection = () => {
                 <div>Level</div>
                 <div className='text-2xl'>{selected.level}</div>
 
+
+                {/* INCREMENT BUTTON */}
                 <div className="flex justify-center p-4">
-                    {showFeedback && <div className='absolute top-[50%] z-10 clickfeedback text-4xl' onAnimationEnd={handleClickEnd}>+{selected.mpc}</div>}
-                    <button className="hover:cursor-pointer hover:scale-110 transition" id="businessbutton" onClick={() => handleClick(businesses[currentBiz].mpc)} >
+
+                    {/* maps all feedback popups on the feedback array */}
+                    {feedbacks.map((fb) => (
+                        <div key={fb.id} className='absolute top-[50%] z-10 clickfeedback pointer-events-none text-4xl' onAnimationEnd={() => handleClickEnd(fb.id)}>+${selected.mpc}</div>
+                    ))}
+
+                    <button className="hover:cursor-pointer hover:scale-110 transition " id="businessbutton" onClick={() => handleClick()} >
                         <img src={businesses[currentBiz].icon} alt={businesses[currentBiz].name}></img>
                     </button>
                 </div>
